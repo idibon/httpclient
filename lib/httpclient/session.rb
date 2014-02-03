@@ -990,7 +990,7 @@ class HTTPClient
           @socket.read(2)
         end
         unless buf.empty?
-          yield buf
+          yield buf.byteslice(0, @chunk_length)
         end
       end
     end
